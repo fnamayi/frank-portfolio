@@ -522,6 +522,17 @@ body:not(.user-is-tabbing) a:focus {
         flex-direction: column-reverse;
         align-items: initial;
     }
+    .about__photo {
+        /* Make the image grayscale initially */
+        filter: grayscale(100%);
+        transition: filter 0.4s ease; /* Smooth transition */
+      }
+      
+      .about__photo:hover {
+        /* Remove grayscale on hover */
+        filter: grayscale(0%);
+      }
+      
 }
 
 .about__photo-container {
@@ -537,6 +548,17 @@ body:not(.user-is-tabbing) a:focus {
         flex: 1;
         margin: 0 var(--gutter-huge) 0 0;
     }
+    .about__photo {
+        /* Make the image grayscale initially */
+        filter: grayscale(100%);
+        transition: filter 0.4s ease; /* Smooth transition */
+      }
+      
+      .about__photo:hover {
+        /* Remove grayscale on hover */
+        filter: grayscale(0%);
+      }
+      
 }
 
 /* --------------------------------------- */
