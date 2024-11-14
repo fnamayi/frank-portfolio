@@ -626,6 +626,17 @@ body:not(.user-is-tabbing) a:focus {
 
 .work__image-box {
   margin-bottom: var(--gutter-normal);
+  overflow: hidden; /* Ensure the image stays within bounds */
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.work__image-box:hover {
+    box-shadow: 0 0 10px 3px #3f0bfa; /* Blue glow around the image */
+    border-radius: 8px;/* Optional: adds a rounded effect to the border */
+}
+
+.work__image-box:hover .work__image {
+  transform: scale(1.05); /* Slightly scale up the image */
+  opacity: 0.8; /* Make it slightly transparent */
 }
 
 @media (min-width: 901px) {
