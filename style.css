@@ -334,11 +334,18 @@ body:not(.user-is-tabbing) a:focus {
 /* --------------------------------------- */
 /* ----- Navigation ----- */
 /* --------------------------------------- */
-
 .nav {
+    position: fixed; /* Keeps the nav at the top */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000; 
     display: flex;
     justify-content: flex-end;
     padding: var(--gutter-normal) 0;
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+    backdrop-filter: blur(5px); /* Optional: adds slight blur for better readability */
+    transition: background-color 0.3s ease; /* Smooth transition for the background */
 }
 
 .nav__items {
