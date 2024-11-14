@@ -119,6 +119,62 @@ img {
 /* ----- Headlines and Paragraphs ----- */
 /* --------------------------------------- */
 
+/* Styling for initials */
+.initials {
+    font-size: 1.5rem; /* Slightly larger for emphasis */
+    font-weight: 700; /* Make the initials bolder */
+    color: var(--pink); /* Highlight color for initials */
+    cursor: pointer;
+    padding: 8px 12px;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 50px; /* Width for initials only */
+    text-align: center;
+    transition: all 0.4s ease;
+    position: relative;
+}
+
+/* Show "FN" by default */
+.initials::before {
+    content: "FN"; /* Initials displayed by default */
+    color: wheat; /* Initial color for initials */
+    transition: opacity 0.4s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Full name styling */
+.initials::after {
+    content: "FRANKLYNE NAMAYI"; /* Full name on hover */
+    color: var(--pink); /* Highlight color for full name */
+    font-weight: 900; /* Extra bold font weight */
+    opacity: 0;
+    white-space: nowrap;
+    transition: opacity 0.4s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* Hover effect to show full name and hide initials */
+
+.initials:hover::before {
+    opacity: 1; /* Hide initials completely */
+}
+
+.initials:hover::after {
+    opacity: 1; /* Show full name */
+}
 h1,
 h2,
 h3 {
@@ -140,7 +196,15 @@ h3 {
   .profession {
     font-size: 1.5rem;
     font-weight: 300;
-    /* margin-bottom: 5px; */
+    margin-bottom: 5px;
+    display: inline-block;
+    color: #ff6b6b;
+    animation: fadeIn 1s forwards;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
   }
   
   .location {
@@ -351,26 +415,72 @@ body:not(.user-is-tabbing) a:focus {
 /* ----- Navigation ----- */
 /* --------------------------------------- */
 .nav {
-    position: fixed; /* Keeps the nav at the top */
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    z-index: 1000; 
+    z-index: 1000;
     display: flex;
-    justify-content: flex-end;
-    padding: var(--gutter-normal) 0;
-    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
-    backdrop-filter: blur(5px); /* Optional: adds slight blur for better readability */
-    transition: background-color 0.3s ease; /* Smooth transition for the background */
+    justify-content: space-between; /* Space initials and links */
+    align-items: center; /* Center vertically */
+    padding: var(--gutter-normal);
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    transition: background-color 0.3s ease;
 }
 
+/* Initials styling */
+.initials {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    /* background-color: #ff6b6b; */
+    padding: 8px 12px;
+    border-radius: 25px;
+    cursor: pointer;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 50px;
+    text-align: center;
+    transition: all 0.4s ease;
+}
+
+.initials:hover {
+    width: 200px;
+    padding-left: 20px;
+    color: #fff;
+    background-color: #333;
+}
+
+.initials::before {
+    content: "FRANKLYNE NAMAYI";
+    color: transparent;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    transition: color 0.3s;
+}
+
+.initials:hover::before {
+    color: #ff6b6b;
+}
+
+/* Navigation items */
 .nav__items {
     display: flex;
     list-style: none;
+    gap: var(--gutter-medium); /* Space between nav items */
 }
 
-.nav__item:not(:last-child) {
-    margin-right: var(--gutter-medium);
+.nav__link {
+    text-decoration: none;
+    color: inherit;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.nav__link:hover {
+    color: var(--pink);
 }
 
 @media(max-width: 500px) {
@@ -391,7 +501,7 @@ body:not(.user-is-tabbing) a:focus {
     }
 }
 
-.nav__link {
+/* .nav__link {
     position: relative;
     display: inline-block;
     padding: 1rem 0;
@@ -420,7 +530,7 @@ body:not(.user-is-tabbing) a:focus {
     right: 0;
     height: 2px;
     background: var(--pink);
-}
+} */
 
 /* --------------------------------------- */
 /* ----- Header ----- */
