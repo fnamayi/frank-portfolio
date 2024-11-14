@@ -1,2 +1,2 @@
 # frank-portfolio
-Projects, passion, and purpose—all in one place
+"Work in progress: debugging the blueprints."
