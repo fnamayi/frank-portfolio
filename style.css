@@ -133,6 +133,22 @@ h3 {
     font-size: var(--font-size-huge);
     font-weight: 400;
 }
+.name-highlight {
+    color: var(--pink); /* Add a unique color to highlight the name */
+  }
+  
+  .profession {
+    font-size: 1.5rem;
+    font-weight: 300;
+    /* margin-bottom: 5px; */
+  }
+  
+  .location {
+    font-size: 1rem;
+    font-weight: 300;
+    color: #aaa;
+    margin-bottom: 30px;
+  }
 
 @media(max-width: 900px) {
     .heading-primary {
